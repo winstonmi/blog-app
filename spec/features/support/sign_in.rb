@@ -3,5 +3,5 @@ def sign_in_as(user)
 
   fill_in 'Email', with: 'harry@hogwarts.edu'
   fill_in 'Password', with: 'super_secret'
-  click_on 'Sign In'
+  click_on 'Login'
 end
