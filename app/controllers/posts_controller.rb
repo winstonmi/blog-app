@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user, only: [:edit, :new, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -30,10 +30,11 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully created.' }
+        format.html { redirect_to user_post_path(@post.user, @post), notice: 'successfully created' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -74,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :title, :body)
+      params.require(:post).permit(:title, :body)
     end
 end
