@@ -11,12 +11,12 @@
 
 
 
-<h1>Posts</h1>
+<h1>Gifts</h1>
 
 <% if user_logged_in? %>
   <h3>Hello, <%= current_user.email %></h3>
   <%= link_to "Logout", logout_path, method: :delete %>
-  <%= link_to 'New Post', new_user_post_path(current_user) %>
+  <%= link_to 'New Gift', new_user_gift_path(current_user) %>
 <% else %>
   <%= link_to "Sign Up", sign_up_path %>
   <%= link_to 'Login', new_session_path%>
@@ -26,21 +26,21 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Title</th>
-      <th>Body</th>
+      <th>Gift Description</th>
+      <th>Quantity</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody class="posts">
-    <% @posts.each do |post| %>
-      <tr class="post">
-        <td><%= post.user.id %></td>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', user_post_path(post.user, post) %></td>
-        <td><%= link_to 'Edit', edit_user_post_path(post.user, post) %></td>
-        <td><%= link_to 'Destroy', user_post_path(post.user, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <tbody class="gifts">
+    <% @gifts.each do |gift| %>
+      <tr class="gift">
+        <td><%= gift.user.id %></td>
+        <td><%= gift.gift_desc %></td>
+        <td><%= gift.quantity %></td>
+        <td><%= link_to 'Show', user_gift_path(gift.user, gift) %></td>
+        <td><%= link_to 'Edit', edit_user_gift_path(gift.user, gift) %></td>
+        <td><%= link_to 'Destroy', user_gift_path(gift.user, gift), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

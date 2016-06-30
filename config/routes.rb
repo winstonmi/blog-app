@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root 'posts#index', as: :home
+  root 'gifts#index', as: :home
   # get 'secret_stuff/public_page'
   # get 'secret_stuff/secret_page'
 
   resources :users do
-    resources :posts
+    resources :gifts
     # do
     #   resources :comments
     # end
@@ -20,5 +20,5 @@ end
 # get 'sign_up', to: 'users#new', as: :signup
 #
 # resources :users, only: [:new, :create] do
-#     resources: posts
+#     resources: gifts
 # end

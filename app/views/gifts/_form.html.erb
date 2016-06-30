@@ -1,11 +1,11 @@
-<%= form_for([:user, post]) do |f| %>
-  <% if post.errors.any? %>
+<%= form_for([:user, gift]) do |f| %>
+  <% if gift.errors.any? %>
 
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@gift.errors.count, "error") %> prohibited this gift from being saved:</h2>
 
       <ul>
-      <% @post.errors.full_messages.each do |message| %>
+      <% @gift.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -18,13 +18,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :gift_desc %>
+    <%= f.text_field :gift_desc %>
   </div>
 
   <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.label :quantity %>
+    <%= f.text_area :quantity %>
   </div>
 
   <div class="actions">
