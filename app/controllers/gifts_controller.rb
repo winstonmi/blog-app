@@ -35,7 +35,7 @@ class GiftsController < ApplicationController
 
     respond_to do |format|
       if @gift.save
-        format.html { redirect_to user_gift_path(@gift.user, @gift), notice: 'Successfully created' }
+        format.html { redirect_to user_gift_path(@gift.user, @gift), notice: 'Successfully created'}
         format.json { render :show, status: :created, location: @gift }
       else
         format.html { render :new }

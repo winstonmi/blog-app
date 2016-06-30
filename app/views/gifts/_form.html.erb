@@ -12,30 +12,15 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
-      <div class="field"> I
-      </div>
 
-      <div class="field">
-        <%= f.label :recipient_name %>
-        <%= f.text_field :recipient_name %>
-      </div>
+<div class="form-inline" id="iou">
+  <h4>
+    I Owe &nbsp <%= f.text_field :recipient_name, placeholder:"Winston Mi" %>
+      <%= f.text_field :quantity, placeholder:"2", id:"formquant" %>
+      <%= f.text_field :gift_desc, placeholder:"Tiger Beers" %>
+    <button type="submit" class="btn btn-default"><%= "Create IOU"%></button>
+  </h4>
+</div>
 
-      <div class="field">
-        <%= f.label :gift_desc %>
-        <%= f.text_field :gift_desc %>
-      </div>
-
-      <div class="field">
-        <%= f.label :quantity %>
-        <%= f.number_field :quantity %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-    </div>
-  </div>
 
 <% end %>
