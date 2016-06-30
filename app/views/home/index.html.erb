@@ -14,8 +14,8 @@
     <% @gifts.each do |gift| %>
     <tr class="gift">
       <td><%= gift.user.email%></td>
-      <td><%= gift.title %></td>
-      <td><%= gift.body %></td>
+      <td><%= gift.gift_desc %></td>
+      <td><%= gift.quantity %></td>
       <td><%= gift.created_at %></td>
     </tr>
     <% end %>

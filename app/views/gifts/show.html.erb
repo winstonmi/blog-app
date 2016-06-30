@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong><%= @gift.user.id %> Owes <%= @gift.recipient_id %> <%= @gift.quantity %> <%= @gift.gift_desc %></strong>
+  <strong>I Owe <%= @gift.recipient_name %> <%= @gift.quantity %> <%= @gift.gift_desc %></strong>
 </p>
 
 <%= link_to 'Edit', edit_user_gift_path(@gift) %> |
