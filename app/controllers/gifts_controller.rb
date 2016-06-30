@@ -35,7 +35,7 @@ class GiftsController < ApplicationController
 
     respond_to do |format|
       if @gift.save
-        format.html { redirect_to user_gift_path(@gift.user, @gift), notice: 'successfully created' }
+        format.html { redirect_to user_gift_path(@gift.user, @gift), notice: 'Successfully created' }
         format.json { render :show, status: :created, location: @gift }
       else
         format.html { render :new }
@@ -76,6 +76,6 @@ class GiftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gift_params
-      params.require(:gift).permit(:title, :body)
+      params.require(:gift).permit(:gift_desc, :quantity, :recipient_id)
     end
 end

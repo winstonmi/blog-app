@@ -22,12 +22,14 @@
   <%= link_to 'Login', new_session_path%>
 <% end %>
 
-<table>
+<table class="table table-striped table-hover .active">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Gift Description</th>
-      <th>Quantity</th>
+      <th>I</th>
+      <th>Owe</th>
+      <th>U</th>
+      <th>a couple...</th>
+      <th>[Something]</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,8 +38,10 @@
     <% @gifts.each do |gift| %>
       <tr class="gift">
         <td><%= gift.user.id %></td>
-        <td><%= gift.gift_desc %></td>
+        <td>Owes</td>
+        <td><%= gift.recipient_id %></td>
         <td><%= gift.quantity %></td>
+        <td><%= gift.gift_desc %></td>
         <td><%= link_to 'Show', user_gift_path(gift.user, gift) %></td>
         <td><%= link_to 'Edit', edit_user_gift_path(gift.user, gift) %></td>
         <td><%= link_to 'Destroy', user_gift_path(gift.user, gift), method: :delete, data: { confirm: 'Are you sure?' } %></td>
