@@ -61,10 +61,15 @@ class GiftsController < ApplicationController
   # DELETE /gifts/1
   # DELETE /gifts/1.json
   def destroy
-    @gift.destroy
-    respond_to do |format|
+    if current_user != @gift.user
+    flash[:error] = "This gift doesn't belong to you!"
+    redirect_to home_path
+
+    else @gift.destroy
+      respond_to do |format|
       format.html { redirect_to user_gifts_path, notice: 'Gift was successfully destroyed.' }
       format.json { head :no_content }
+      end
     end
   end
 
